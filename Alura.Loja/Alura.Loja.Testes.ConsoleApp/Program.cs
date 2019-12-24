@@ -10,7 +10,8 @@ namespace Alura.Loja.Testes.ConsoleApp
     {
         static void Main(string[] args)
         {
-            GravarUsandoAdoNet();
+            //GravarUsandoAdoNet();
+            GravarUsandoEntity();
         }
 
         private static void GravarUsandoAdoNet()
@@ -23,6 +24,20 @@ namespace Alura.Loja.Testes.ConsoleApp
             using (var repo = new ProdutoDAO())
             {
                 repo.Adicionar(p);
+            }
+        }
+
+        private static void GravarUsandoEntity()
+        {
+            Produto p = new Produto();
+            p.Nome = "Harry Potter e o Enigma do Príncipe";
+            p.Categoria = "Livros";
+            p.Preco = 49.90;
+
+            using (var contexto = new LojaContext())
+            {
+                contexto.Produtos.Add(p);
+                contexto.SaveChanges();
             }
         }
     }
