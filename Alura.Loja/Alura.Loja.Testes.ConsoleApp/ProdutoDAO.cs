@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace Alura.Loja.Testes.ConsoleApp
 {
-    internal class ProdutoDAO : IDisposable
+    internal class ProdutoDAO : IDisposable, IProdutoDAO
     {
         private SqlConnection conexao;
 
@@ -104,6 +104,26 @@ namespace Alura.Loja.Testes.ConsoleApp
             resultado.Close();
 
             return lista;
+        }
+
+        void IProdutoDAO.Adicionar(Produto p)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IProdutoDAO.Atualizar(Produto p)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IProdutoDAO.Remover(Produto p)
+        {
+            throw new NotImplementedException();
+        }
+
+        IList<Produto> IProdutoDAO.Produtos()
+        {
+            throw new NotImplementedException();
         }
     }
 }
